@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment-blue
+spec:
+  selector:
+    matchLabels:
+      app: nginx-blue
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx-blue
+        version: blue
+    spec:
+      containers:
+      - name: nginx-blue
+        image: 396608811323.dkr.ecr.us-east-1.amazonaws.com/legalario:nginx-test-v0.1
+        ports:
+        - containerPort: 80
