@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: legalariocicd
+  labels:
+    app: legalariocicd
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: legalariocicd
+  template:
+    metadata:
+      labels:
+        app: legalariocicd
+    spec:
+      containers:
+        - name: legalariocicd 
+          image: 396608811323.dkr.ecr.us-east-1.amazonaws.com/legalario:nginx-test-0.2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
