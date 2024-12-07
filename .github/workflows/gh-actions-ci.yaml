@@ -44,4 +44,4 @@ jobs:
     - name: Deploy to EKS
       run: |
         kubectl apply -f deployment.yaml
-        kubectl expose deployment legalariocicd --type=LoadBalancer --name=my-service
+        kubectl expose deployment legalario-deployment --type=LoadBalancer --name=my-service
