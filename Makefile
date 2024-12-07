@@ -10,3 +10,7 @@ docker-run:
 
 docker-tag:
 	docker tag ${CONTAINER_NAME}:${VERSION} ${REGISTRY}:${CONTAINER_NAME}-v${VERSION}
+
+docker-push:
+	docker push ${REGISTRY}:${CONTAINER_NAME}-v${VERSION}
+
