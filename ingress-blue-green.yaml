@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: blue-green-ingress
+  annotations:
+    kubernetes.io/ingress.class: "alb" 
+spec:
+  rules:
+  - host: aef97b4a1aa454ccfbc9764615b25c6d-1293316575.us-east-1.elb.amazonaws.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: blue-svc-legalario
+            port:
+              number: 80
+  - host: a574e83561ab842e58fff652637633bb-1760936151.us-east-1.elb.amazonaws.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: my-service
+            port:
+              number: 80
